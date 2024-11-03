@@ -20,4 +20,12 @@ public class BoardRepository {
     public List<BoardDTO> findAll() {
         return sql.selectList("Board.findAll");
     }
+
+    public void updateHist(Long id) {
+        sql.update("Board.updateHits", id);
+    }
+
+    public BoardDTO findById(Long id) {
+        return sql.selectOne("Board.findById", id);
+    }
 }

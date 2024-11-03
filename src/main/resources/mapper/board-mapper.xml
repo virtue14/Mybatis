@@ -13,4 +13,20 @@
         FROM board_table
         ORDER BY id DESC;
     </select>
+
+    <update id="updateHits" parameterType="Long">
+        UPDATE board_table SET boardHits=boardHits+1 WHERE id=#{id}
+    </update>
+
+    <select id="findById" parameterType="Long" resultType="board">
+        SELECT id,
+               boardTitle,
+               boardWriter,
+               boardPass,
+               boardContents,
+               boardHits,
+               date_format(createdAt, "%Y-%m-%d %H:%i:%s") AS createdAt
+        FROM board_table
+        WHERE id = #{id};
+    </select>
 </mapper>
