@@ -29,4 +29,12 @@
         FROM board_table
         WHERE id = #{id};
     </select>
+
+    <update id="update">
+        UPDATE board_table
+        SET boardTitle=#{boardTitle},
+            boardContents=#{boardContents}
+        WHERE id = #{id};
+
+    </update>
 </mapper>
