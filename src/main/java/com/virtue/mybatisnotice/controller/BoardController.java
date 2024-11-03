@@ -1,6 +1,7 @@
 package com.virtue.mybatisnotice.controller;
 
 import com.virtue.mybatisnotice.dto.BoardDTO;
+import com.virtue.mybatisnotice.dto.BoardFileDTO;
 import com.virtue.mybatisnotice.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,10 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
         System.out.println("boardDTO = " + boardDTO);
+        if (boardDTO.getFileAttached() == 1) {
+            BoardFileDTO boardFileDTO = boardService.findFile(id);
+            model.addAttribute("boardFile", boardFileDTO);
+        }
         return "detail";
     }
 

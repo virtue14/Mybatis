@@ -9,13 +9,15 @@
     </insert>
 
     <select id="findAll" resultType="board">
-        SELECT id, boardTitle, boardWriter, boardhits, date_format(createdAt, "%Y-%m-%d") AS createdAt
+        SELECT id, boardTitle, boardWriter, boardhits, DATE_FORMAT(createdAt, "%Y-%m-%d") AS createdAt
         FROM board_table
         ORDER BY id DESC;
     </select>
 
     <update id="updateHits" parameterType="Long">
-        UPDATE board_table SET boardHits=boardHits+1 WHERE id=#{id}
+        UPDATE board_table
+        SET boardHits=boardHits + 1
+        WHERE id = #{id}
     </update>
 
     <select id="findById" parameterType="Long" resultType="board">
@@ -25,7 +27,7 @@
                boardPass,
                boardContents,
                boardHits,
-               date_format(createdAt, "%Y-%m-%d %H:%i:%s") AS createdAt
+               DATE_FORMAT(createdAt, "%Y-%m-%d %H:%i:%s") AS createdAt
         FROM board_table
         WHERE id = #{id};
     </select>
@@ -47,4 +49,10 @@
         INSERT INTO board_file_table(originalfilename, storedfilename, boardid)
         VALUES (#{originalFileName}, #{storedFileName}, #{boardId})
     </insert>
+
+    <select id="findFile" parameterType="Long" resultType="boardFile">
+        SELECT *
+        FROM board_file_table
+        WHERE boardId = #{id};
+    </select>
 </mapper>
