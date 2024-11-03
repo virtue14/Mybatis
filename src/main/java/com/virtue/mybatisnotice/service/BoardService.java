@@ -42,9 +42,9 @@ public class BoardService {
             boardFileDTO.setBoardId(saveBoard.getId());
             // 파일 저장용 폴더에 파일 저장 처리
             // MacOS
-            String savePath = "/Users/duck/Desktop/프로젝트/Youtube/MyBatisNotice/upload_files" + storedFileName;
+            String savePath = "/Users/duck/Desktop/프로젝트/Youtube/MyBatisNotice/upload_files/" + storedFileName;
             // Windows
-//            String savePath = "C:/duck/Desktop/프로젝트/Youtube/MyBatisNotice/upload_files" + storedFileName;
+//            String savePath = "C:/duck/Desktop/프로젝트/Youtube/MyBatisNotice/upload_files/" + storedFileName;
             boardFile.transferTo(new File(savePath));
             // board_file_table 저장 처리
             boardRepository.saveFile(boardFileDTO);
