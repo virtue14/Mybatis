@@ -3,9 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Board">
-    <insert id="save" parameterType="board">
+    <insert id="save" parameterType="board" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO board_table(boardTitle, boardWriter, boardPass, boardContents)
-        values(#{boardTitle}, #{boardWriter}, #{boardPass}, #{boardContents})
+        VALUES (#{boardTitle}, #{boardWriter}, #{boardPass}, #{boardContents})
     </insert>
 
     <select id="findAll" resultType="board">
@@ -42,4 +42,9 @@
         FROM board_table
         WHERE id = #{id};
     </delete>
+
+    <insert id="saveFile" parameterType="boardFile">
+        INSERT INTO board_file_table(originalfilename, storedfilename, boardid)
+        VALUES (#{originalFileName}, #{storedFileName}, #{boardId})
+    </insert>
 </mapper>

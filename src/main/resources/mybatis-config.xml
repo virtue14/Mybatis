@@ -4,5 +4,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.virtue.mybatisnotice.dto.BoardDTO" alias="board" />
+        <typeAlias type="com.virtue.mybatisnotice.dto.BoardFileDTO" alias="boardFile" />
     </typeAliases>
 </configuration>
