@@ -3,9 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com/virtue/mybatisnotice/dto/BoardDTO" alias="board"></typeAlias>
+        <typeAlias type="com.virtue.mybatisnotice.dto.BoardDTO" alias="board" />
     </typeAliases>
 </configuration>
-
-
-
