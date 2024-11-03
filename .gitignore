@@ -1,5 +1,5 @@
 ### SETTINGS ###
-*.jpg
+upload_files/
 
 HELP.md
 .gradle
