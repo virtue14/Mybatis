@@ -60,4 +60,10 @@ public class BoardController {
         BoardDTO dto = boardService.findById(boardDTO.getId());
         return "detail";
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/list";
+    }
 }
