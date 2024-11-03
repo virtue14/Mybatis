@@ -4,7 +4,11 @@
 
 <mapper namespace="Board">
     <insert id="save" parameterType="board">
-        insert into board_table(boardTitle, boardWriter, boardPass, boardContents)
+        INSERT INTO board_table(boardTitle, boardWriter, boardPass, boardContents)
         values(#{boardTitle}, #{boardWriter}, #{boardPass}, #{boardContents})
     </insert>
+
+    <select id="findAll" resultType="board">
+        SELECT * FROM board_table ORDER BY id DESC
+    </select>
 </mapper>
